@@ -1,0 +1,92 @@
+// {
+//     "env": {
+//       "browser": true,
+//       "es2022": true,
+//       "node": true
+//     },
+//     "extends": [
+//       "eslint:recommended",
+//       "plugin:react/recommended",
+//       "plugin:react-hooks/recommended",
+//       "react-app",
+//       "prettier"
+//     ],
+//     "parser": "@typescript-eslint/parser",
+//     "parserOptions": {
+//       "ecmaFeatures": {
+//         "jsx": true
+//       },
+//       "ecmaVersion": "latest",
+//       "sourceType": "module"
+//     },
+//     "plugins": [
+//       "prettier"
+//     ],
+//     "settings": {
+//       "react": {
+//         "version": "999.999.999"
+//       }
+//     },
+//     "rules": {
+//         "no-console": "error",
+//         "prettier/prettier": "error",
+//         "import/order": [
+//           "error",
+//           {
+//             "groups": [
+//               "builtin",
+//               "external",
+//               "internal"
+//             ],
+//             "pathGroups": [
+//               {
+//                 "pattern": "react",
+//                 "group": "external",
+//                 "position": "before"
+//               }
+//             ],
+//             "pathGroupsExcludedImportTypes": [
+//               "react"
+//             ],
+//             "newlines-between": "always",
+//             "alphabetize": {
+//               "order": "asc",
+//               "caseInsensitive": true
+//             }
+//           }
+//         ]
+//       }
+//   }
+
+{
+  "extends": ["react-app", "plugin:prettier/recommended"],
+  "plugins": ["prettier"],
+  "rules": {
+    "no-console": "error",
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal"],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
+    ]
+  }
+}

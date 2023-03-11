@@ -1,0 +1,28 @@
+{
+    "compilerOptions": {
+      "noEmit": true,
+      "allowJs": true,
+      "sourceMap": true,
+      "strict": true,
+      "strictNullChecks": true,
+      "skipLibCheck": true,
+      "module": "es6",
+      "target": "es6",
+      "moduleResolution": "node",
+      "jsx": "react",
+      "esModuleInterop": true,
+      "allowSyntheticDefaultImports": true,
+      "experimentalDecorators": true,
+    },
+    "baseUrl": ".",
+	"paths": {
+  	"@components/*": ["src/components/*"],
+  	"@config/*": ["src/config/*"],
+  	"@styles/*": ["src/styles/*"],
+  	"@utils/*": ["src/utils/*"],
+  	"@store/*": ["src/store/*"]
+	},   
+    "include": ["src/**/*", "./declaration.d.ts"], // какие файлы включены в проверку
+    "exclude": ["node_modules"] // какие файлы исключены
+  }
+  

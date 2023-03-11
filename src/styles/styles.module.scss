@@ -1,0 +1,7 @@
+$color: red;
+
+.title {
+    transform: scale(0.5);
+    filter: grayscale(50%);
+    color: $color;
+}
