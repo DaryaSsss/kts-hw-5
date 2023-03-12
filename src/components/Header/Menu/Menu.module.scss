@@ -1,0 +1,53 @@
+@use "@styles/variables";
+@use "@styles/mixins";
+
+.menu {
+  @include mixins.stack;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 200;
+  width: 100%;
+  align-items: flex-start;
+  background-color: variables.$white;
+  transform: translateY(-100%);
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  border-bottom: 2px solid #f3f3f3;
+  padding: 24px;
+  gap: 24px;
+
+  &_opened {
+    transform: translateY(0);
+  }
+}
+
+.link {
+  @include mixins.fontXS;
+  @include mixins.fontRegular;
+  text-decoration: none;
+  color: variables.$black;
+  transition: all 0.2s ease;
+
+  &_selected {
+    color: variables.$green;
+    pointer-events: none;
+  }
+
+  @include mixins.for-tablet {
+    @include mixins.fontS;
+    @include mixins.fontRegular;
+  }
+}
+
+.logo {
+  height: 32px;
+}
+
+.actionIcons {
+  display: flex;
+  gap: 24px;
+
+  &_icon {
+    height: 24px;
+  }
+}

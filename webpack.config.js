@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const buildPath = path.resolve(__dirname, 'dist');
 const srcPath = path.resolve(__dirname, 'src');
+const publicPath = path.resolve(__dirname, 'public');
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -72,12 +73,16 @@ module.exports = {
             maxSize: 10 * 1024
           }
         }
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource'
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(srcPath, 'index.html')
+      template: path.join(publicPath, 'index.html')
     }),
     !isProd && new ReactRefreshWebpackPlugin(),
     new MiniCssExtractPlugin({
@@ -88,12 +93,20 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.jsx', '.js', '.ts'],
     alias: {
-      components: path.join(srcPath, 'components'),
-      config: path.join(srcPath, 'config'),
-      styles: path.join(srcPath, 'styles'),
-      utils: path.join(srcPath, 'utils'),
-      store: path.join(srcPath, 'store'),
-      images: path.join(srcPath, 'images')
+      '@components': path.resolve(__dirname, 'src/components/'),
+      '@styles': path.resolve(__dirname, 'src/styles/'),
+      '@utils': path.resolve(__dirname, 'src/utils/'),
+      '@store': path.resolve(__dirname, 'src/store/'),
+      '@img': path.resolve(__dirname, 'src/img/'),
+      '@pages': path.resolve(__dirname, 'src/pages/')
+
+      // components: path.join(srcPath, 'components'),
+      // config: path.join(srcPath, 'config'),
+      // styles: path.join(srcPath, 'styles'),
+      // utils: path.join(srcPath, 'utils'),
+      // store: path.join(srcPath, 'store'),
+      // img: path.join(srcPath, 'img'),
+      // pages: path.join(srcPath, 'pages')
     }
   },
   devServer: {

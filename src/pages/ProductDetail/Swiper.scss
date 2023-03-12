@@ -1,0 +1,49 @@
+@use "@styles/variables";
+@use "@styles/mixins";
+
+.swiper {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  user-select: none;
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 64px;
+    height: 64px;
+    border-radius: 1000px;
+    background: variables.$black;
+    box-shadow: 0px 4px 20px variables.$darkGray;
+    background-image: url("~@img/arrow-swiper.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    &::after {
+      content: none;
+    }
+  }
+  .swiper-button-prev {
+    left: 24px;
+    transform: scaleX(-1);
+  }
+  .swiper-button-next {
+    right: 24px;
+  }
+  .swiper-button-disabled {
+    opacity: 0.6 !important;
+  }
+
+  @include mixins.for-tablet-down {
+    .swiper-button-prev,
+    .swiper-button-next {
+      width: 40px;
+      height: 40px;
+      background-size: 18.6px;
+    }
+    .swiper-button-prev {
+      left: 14px;
+    }
+    .swiper-button-next {
+      right: 14px;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+@use "@styles/variables";
+@use "@styles/mixins";
+
+.multiDropdown {
+  @include mixins.fontS;
+  @include mixins.fontRegular;
+  padding: 26px;
+  position: relative;
+  background-color: variables.$white;
+  box-shadow: variables.$boxShadow;
+  font-family: "Eudoxus Sans", sans-serif;
+  z-index: 2;
+  color: variables.$black;
+  width: 100%;
+
+  &_visible {
+    background-color: variables.$lightGray;
+  }
+
+  &_disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+
+    &.multi-dropdown-placeholder {
+      color: variables.$black;
+    }
+  }
+
+  &_list {
+    position: absolute;
+    z-index: 1;
+    background-color: variables.$white;
+    padding: 16px;
+    margin-top: 38px;
+    box-shadow: variables.$boxShadow;
+    left: 0;
+    right: 0;
+
+    &_hidden {
+      display: none;
+    }
+  }
+
+  &_option {
+    @include mixins.fontXS;
+    @include mixins.fontRegular;
+    cursor: pointer;
+    margin-bottom: 32px;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+
+    &_selected {
+      color: variables.$green;
+    }
+  }
+
+  &_placeholder {
+    color: variables.$darkGray;
+
+    &_visible {
+      color: variables.$black;
+    }
+  }
+}

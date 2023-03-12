@@ -1,0 +1,111 @@
+@use "@styles/variables";
+@use "@styles/mixins";
+
+.card {
+  @include mixins.stack;
+  cursor: pointer;
+
+  &_image {
+    margin-bottom: 26px;
+    object-fit: cover;
+    width: 100%;
+    height: 360px;
+
+    @include mixins.for-phone-down {
+      height: 130px;
+      margin-bottom: 14px;
+    }
+
+    @include mixins.for-tablet-small {
+      height: 190px;
+      margin-bottom: 20px;
+    }
+
+    @include mixins.for-tablet-big {
+      height: 260px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &_category {
+    @include mixins.fontS;
+    color: variables.$darkGray;
+    margin-bottom: 14px;
+
+    @include mixins.for-phone-down {
+      @include mixins.fontXXS;
+      line-height: 180%;
+      margin-bottom: 6px;
+    }
+
+    @include mixins.for-tablet {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+  }
+
+  &_title {
+    @include mixins.fontL;
+    color: variables.$black;
+    letter-spacing: 0.01em;
+    margin-bottom: 6px;
+
+    @include mixins.for-phone-down {
+      @include mixins.fontXS;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      margin-bottom: 4px;
+    }
+
+    @include mixins.for-tablet {
+      @include mixins.fontS;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+  }
+
+  &_subtitle {
+    @include mixins.fontS;
+    @include mixins.fontRegular;
+    color: variables.$darkGray;
+    margin-bottom: 18px;
+
+    @include mixins.for-phone-down {
+      @include mixins.fontXXS;
+      @include mixins.fontRegular;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      font-size: 12px;
+    }
+
+    @include mixins.for-tablet {
+      @include mixins.fontXS;
+      @include mixins.fontRegular;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      margin-bottom: 14px;
+    }
+  }
+
+  &_content {
+    @include mixins.fontM;
+    color: variables.$black;
+    margin-top: auto;
+
+    @include mixins.for-phone-down {
+      @include mixins.fontXS;
+    }
+
+    @include mixins.for-tablet {
+      @include mixins.fontS;
+    }
+  }
+}

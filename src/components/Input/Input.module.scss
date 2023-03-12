@@ -1,0 +1,35 @@
+@use "@styles/variables";
+@use "@styles/mixins";
+
+.input {
+  @include mixins.group;
+  @include mixins.fontS;
+  @include mixins.fontRegular;
+  height: 84px;
+  padding: 0 28px;
+  background-color: white;
+  box-shadow: variables.$boxShadow;
+  border: none;
+  outline: none;
+  color: variables.$black;
+  font-family: "Eudoxus Sans";
+  width: 100%;
+  border: 1px solid transparent;
+
+  &:focus {
+    border: 1px solid variables.$green;
+  }
+
+  &::placeholder {
+    color: variables.$darkGray;
+  }
+
+  &_disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+
+    &::placeholder {
+      color: variables.$black;
+    }
+  }
+}

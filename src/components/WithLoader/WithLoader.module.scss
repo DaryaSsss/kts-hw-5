@@ -1,0 +1,11 @@
+.wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.center {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}

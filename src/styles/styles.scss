@@ -1,0 +1,15 @@
+@import url('./Roboto/fonts.scss');
+@import url('./EudoxusSans/fonts.scss');
+
+html,
+body {
+  // font-family: "Roboto";
+  font-family: 'Eudoxus Sans', sans-serif;
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

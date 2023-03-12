@@ -1,0 +1,72 @@
+@use "@styles/variables";
+@use "@styles/mixins";
+
+.header {
+  height: 120px;
+  border-bottom: 2px solid variables.$lightGray;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  background-color: variables.$white;
+
+  @include mixins.for-phone-down {
+    height: 72px;
+  }
+}
+
+.content {
+  @include mixins.group;
+  height: 120px;
+  max-width: 1240px;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding: 0 24px;
+  margin: 0 auto;
+
+  @include mixins.for-phone-down {
+    height: 72px;
+  }
+}
+
+.logo {
+  @include mixins.for-phone-down {
+    height: 32px;
+  }
+}
+
+.links {
+  display: flex;
+  gap: 60px;
+
+  @include mixins.for-laptop {
+    gap: 40px;
+  }
+}
+
+.link {
+  @include mixins.fontS;
+  @include mixins.fontRegular;
+  @include mixins.group;
+  height: 120px;
+  color: variables.$black;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+
+  &_selected {
+    color: variables.$green;
+    border-bottom: 2px solid variables.$green;
+    pointer-events: none;
+  }
+
+  @include mixins.for-laptop {
+    @include mixins.fontXS;
+    @include mixins.fontRegular;
+  }
+}
+
+.actionIcons {
+  display: flex;
+  gap: 24px;
+}
