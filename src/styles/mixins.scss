@@ -1,0 +1,102 @@
+@mixin group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@mixin stack {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin fontRegular {
+  font-weight: 500;
+  line-height: 180%;
+}
+
+@mixin fontBold {
+  font-weight: 700;
+  line-height: 130%;
+}
+
+@mixin fontXXS {
+  font-size: 12px;
+  @include fontBold;
+}
+
+@mixin fontXS {
+  font-size: 14px;
+  @include fontBold;
+}
+
+@mixin fontS {
+  font-size: 18px;
+  @include fontBold;
+}
+
+@mixin fontM {
+  font-size: 24px;
+  @include fontBold;
+}
+
+@mixin fontL {
+  font-size: 26px;
+  @include fontBold;
+}
+
+@mixin fontXL {
+  font-size: 32px;
+  @include fontBold;
+}
+
+@mixin fontXXL {
+  font-size: 44px;
+  @include fontBold;
+}
+
+@mixin fontTitle {
+  font-size: 64px;
+  @include fontBold;
+}
+
+@mixin for-phone-down {
+  @media (max-width: 425px) {
+    @content;
+  }
+}
+
+@mixin for-tablet {
+  @media (min-width: 426px) and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-down {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-small {
+  @media (min-width: 426px) and (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin for-tablet-big {
+  @media (min-width: 601px) and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin for-laptop {
+  @media (min-width: 769px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin for-laptop-down {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}

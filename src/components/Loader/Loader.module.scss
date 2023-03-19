@@ -1,0 +1,38 @@
+@use "@styles/variables";
+
+.loader {
+  border: solid variables.$green;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+
+  &_size-l {
+    width: 60px;
+    height: 60px;
+    border-width: 6px;
+  }
+
+  &_size-m {
+    width: 40px;
+    height: 40px;
+    border-width: 4.5px;
+  }
+
+  &_size-s {
+    width: 20px;
+    height: 20px;
+    border-width: 3px;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,152 @@
+@use '@styles/variables';
+@use '@styles/mixins';
+
+.page {
+  margin: 0 auto;
+}
+
+.content {
+  max-width: 1240px;
+  padding: 100px 24px 4px 24px;
+  margin: 0 auto;
+
+  @include mixins.for-tablet-down {
+    padding: 50px 24px -12px 24px;
+  }
+}
+
+.card {
+  @include mixins.group;
+  gap: 50px;
+  margin-bottom: 50px;
+
+  @include mixins.for-tablet-down {
+    @include mixins.stack;
+    gap: 30px;
+    align-items: flex-start;
+  }
+
+  &_image {
+    @include mixins.group;
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    min-height: 600px;
+    object-fit: cover;
+
+    @include mixins.for-phone-down {
+      min-height: 327px;
+    }
+
+    @include mixins.for-tablet-small {
+      min-height: 450px;
+    }
+
+    @include mixins.for-tablet-big {
+      min-height: 525px;
+    }
+
+    @include mixins.for-laptop {
+      min-height: 400px;
+    }
+  }
+}
+
+.noProduct {
+  margin: 0 auto;
+}
+
+.description {
+  @include mixins.stack;
+  flex: 1;
+  padding-top: 32px;
+
+  @include mixins.for-tablet-down {
+    padding-top: 0;
+    width: 100%;
+  }
+
+  @include mixins.for-laptop {
+    padding-top: 12px;
+  }
+
+  &_title {
+    @include mixins.fontXXL;
+    color: variables.$black;
+    margin-bottom: 20px;
+
+    @include mixins.for-tablet-down {
+      @include mixins.fontM;
+    }
+
+    @include mixins.for-laptop {
+      @include mixins.fontL;
+    }
+  }
+
+  &_subtitle {
+    @include mixins.fontS;
+    @include mixins.fontRegular;
+    color: variables.$darkGray;
+    margin-bottom: 128px;
+
+    @include mixins.for-tablet-down {
+      @include mixins.fontXS;
+      @include mixins.fontRegular;
+      margin-bottom: 30px;
+    }
+
+    @include mixins.for-laptop {
+      @include mixins.fontS;
+      @include mixins.fontRegular;
+      margin-bottom: 64px;
+    }
+  }
+
+  &_content {
+    @include mixins.fontXXL;
+    color: variables.$black;
+    margin-bottom: 50px;
+
+    @include mixins.for-tablet-down {
+      @include mixins.fontM;
+      margin-bottom: 30px;
+    }
+
+    @include mixins.for-laptop {
+      @include mixins.fontXL;
+      margin-bottom: 30px;
+    }
+  }
+
+  &_buttons {
+    @include mixins.group;
+    gap: 20px;
+    width: 100%;
+
+    @include mixins.for-tablet-down {
+      gap: 12px;
+      flex-direction: column;
+    }
+
+    &_button {
+      width: 100%;
+      text-align: center;
+
+      @include mixins.for-tablet-down {
+        height: 53px;
+      }
+    }
+  }
+}
+
+.relatedTitle {
+  @include mixins.fontXL;
+  letter-spacing: 0.01em;
+  color: variables.$black;
+  margin-bottom: 30px;
+
+  @include mixins.for-tablet-down {
+    @include mixins.fontS;
+  }
+}

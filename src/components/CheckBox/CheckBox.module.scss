@@ -1,0 +1,32 @@
+@use "@styles/variables";
+
+.checkbox {
+  width: 42px;
+  height: 42px;
+  background-color: variables.$white;
+  appearance: none;
+  box-shadow: 0px 4px 120px variables.$darkGray;
+  border: 1px solid transparent;
+  outline: none;
+  margin: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  &:not(:disabled):hover {
+    border: 1px solid variables.$green;
+  }
+
+  &:checked {
+    background-image: url("~@img/check.svg");
+    background-repeat: no-repeat;
+    outline: none;
+    background-position: center;
+    background-size: cover;
+  }
+
+  &_disabled {
+    pointer-events: none;
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}

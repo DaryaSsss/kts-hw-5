@@ -1,0 +1,61 @@
+@use "@styles/variables";
+@use "@styles/mixins";
+
+.page {
+  margin: 0 auto;
+}
+
+.content {
+  max-width: 1240px;
+  padding: 0px 24px 4px 24px;
+  margin: 0 auto;
+
+  @include mixins.for-tablet-down {
+    padding: 50px 24px -12px 24px;
+  }
+}
+
+.header {
+  @include mixins.stack;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  padding-bottom: 79px;
+  padding-top: 100px;
+
+  @include mixins.for-phone-down {
+    padding-bottom: 32px;
+    padding-top: 50px;
+  }
+
+  &__title {
+    @include mixins.fontTitle;
+    color: variables.$black;
+
+    @include mixins.for-phone-down {
+      @include mixins.fontL;
+    }
+
+    @include mixins.for-tablet {
+      @include mixins.fontXXL;
+    }
+  }
+
+  &__description {
+    @include mixins.fontS;
+    @include mixins.fontRegular;
+    max-width: 600px;
+    color: variables.$darkGray;
+    overflow: hidden;
+
+    @include mixins.for-phone-down {
+      @include mixins.fontXS;
+      @include mixins.fontRegular;
+    }
+
+    @include mixins.for-tablet {
+      @include mixins.fontS;
+      @include mixins.fontRegular;
+    }
+  }
+}

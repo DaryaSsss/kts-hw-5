@@ -1,0 +1,265 @@
+@use '@styles/variables';
+@use '@styles/mixins';
+
+.page {
+  margin: 0 auto;
+}
+
+.content {
+  max-width: 1240px;
+  padding: 0 24px 48px 24px;
+  margin: 0 auto;
+}
+
+.header {
+  @include mixins.stack;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  padding-bottom: 79px;
+  padding-top: 100px;
+
+  @include mixins.for-phone-down {
+    padding-bottom: 32px;
+    padding-top: 50px;
+  }
+}
+
+.title {
+  @include mixins.fontTitle;
+  color: variables.$black;
+
+  @include mixins.for-phone-down {
+    @include mixins.fontL;
+  }
+
+  @include mixins.for-tablet {
+    @include mixins.fontXXL;
+  }
+}
+
+.subtitle {
+  @include mixins.fontS;
+  @include mixins.fontRegular;
+  max-width: 600px;
+  color: variables.$darkGray;
+  overflow: hidden;
+
+  @include mixins.for-phone-down {
+    @include mixins.fontXS;
+    @include mixins.fontRegular;
+  }
+
+  @include mixins.for-tablet {
+    @include mixins.fontS;
+    @include mixins.fontRegular;
+  }
+}
+
+.filter {
+  @include mixins.group;
+  gap: 30px;
+  margin-bottom: 51px;
+
+  .searchWrapper {
+    @include mixins.group;
+    position: relative;
+    width: 100%;
+  }
+
+  .input {
+    box-shadow: variables.$boxShadowDark;
+    padding-left: 75px;
+    padding-right: 180px;
+
+    &__icon {
+      position: absolute;
+      left: 25px;
+
+      @include mixins.for-tablet-down {
+        height: 24px;
+        left: 14px;
+      }
+    }
+
+    &__button {
+      position: absolute;
+      right: 28px;
+
+      @include mixins.for-tablet-down {
+        @include mixins.fontXS;
+        height: 38px;
+        right: 8px;
+        padding: 0 18px;
+      }
+    }
+
+    @include mixins.for-tablet-down {
+      padding-left: 50px;
+      padding-right: 120px;
+    }
+  }
+
+  @include mixins.for-tablet-down {
+    @include mixins.stack;
+    gap: 16px;
+
+    .input {
+      height: 54px;
+      @include mixins.fontXS;
+      @include mixins.fontRegular;
+    }
+
+    .icon {
+      height: 20px;
+      width: 20px;
+    }
+  }
+}
+
+.listHeader {
+  @include mixins.group;
+  gap: 10px;
+  margin-bottom: 50px;
+
+  @include mixins.for-phone-down {
+    margin-bottom: 20px;
+  }
+}
+
+.listTitle {
+  @include mixins.fontXXL;
+  color: variables.$black;
+
+  @include mixins.for-phone-down {
+    @include mixins.fontS;
+    font-size: 18px;
+  }
+
+  @include mixins.for-tablet {
+    @include mixins.fontXL;
+    font-size: 30px;
+  }
+}
+
+.numberOfProducts {
+  @include mixins.group;
+  @include mixins.fontBold;
+  font-size: 16px;
+  color: variables.$green;
+  background: #f9f9f9;
+  border-radius: 20px;
+  height: 30px;
+  padding: 0 16px;
+
+  @include mixins.for-phone-down {
+    @include mixins.fontXXS;
+    height: 22px;
+    line-height: 180%;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 29px;
+  row-gap: 30px;
+  overflow-x: hidden;
+  margin-bottom: 50px;
+
+  @include mixins.for-laptop-down {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.pagination {
+  @include mixins.group;
+  list-style-type: none;
+  width: 100%;
+  justify-content: center;
+}
+
+.arrow {
+  @include mixins.for-phone-down {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.arrowRight {
+  transform: scaleX(-1);
+
+  @include mixins.for-phone-down {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.link {
+  @include mixins.group;
+}
+
+.break {
+  @include mixins.group;
+  @include mixins.fontS;
+  @include mixins.fontRegular;
+  width: 38px;
+  justify-content: center;
+  line-height: 130%;
+}
+
+.paginationPage {
+  @include mixins.group;
+  @include mixins.fontS;
+  @include mixins.fontRegular;
+  border: 1.5px solid #f9f9f9;
+  justify-content: center;
+  width: 38px;
+  height: 42px;
+  color: variables.$black;
+  cursor: pointer;
+
+  &::marker {
+    display: none;
+  }
+
+  &_active {
+    background-color: variables.$green;
+    border: 1.5px solid variables.$green;
+    color: variables.$white;
+  }
+
+  &_move {
+    border: 1.5px solid transparent;
+    display: flex;
+    margin: 0 15px;
+    cursor: pointer;
+
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  @include mixins.for-phone-down {
+    @include mixins.fontXS;
+    @include mixins.fontRegular;
+    line-height: 130%;
+    width: 32px;
+    height: 32px;
+
+    &_move {
+      margin: 0 14px;
+    }
+  }
+}
+
+.loader {
+  @include mixins.group;
+  justify-content: center;
+  padding-bottom: 48px;
+}
+
+.disabled {
+  cursor: not-allowed;
+}

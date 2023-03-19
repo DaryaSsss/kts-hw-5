@@ -1,0 +1,73 @@
+@use '@styles/variables';
+@use '@styles/mixins';
+
+.wrapper {
+  position: relative;
+
+  @include mixins.for-tablet-down {
+    width: 100%;
+  }
+}
+
+.button {
+  @include mixins.fontRegular;
+  height: 84px;
+  gap: 12px;
+  box-shadow: variables.$boxShadowDark;
+  border: 1px solid transparent;
+  width: 190px;
+
+  &_disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background-color: variables.$white;
+
+    &:hover {
+      background-color: variables.$white;
+      border: 1px solid transparent;
+    }
+  }
+
+  @include mixins.for-tablet-down {
+    @include mixins.fontXS;
+    @include mixins.fontRegular;
+    height: 48px;
+    width: 100%;
+  }
+}
+
+.icon {
+  @include mixins.for-tablet-down {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+.dropdown {
+  @include mixins.fontRegular;
+  position: absolute;
+  top: 96px;
+  box-shadow: variables.$boxShadowDark;
+  width: 190px;
+  background-color: variables.$white;
+  max-height: 210px;
+  overflow-y: scroll;
+
+  @include mixins.for-tablet-down {
+    top: 56px;
+    width: 100%;
+  }
+
+  &__option {
+    padding: 12px 16px;
+    cursor: pointer;
+
+    &:hover {
+      color: variables.$green;
+    }
+
+    &_selected {
+      color: variables.$green;
+    }
+  }
+}

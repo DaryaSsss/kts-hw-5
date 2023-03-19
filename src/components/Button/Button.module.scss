@@ -1,0 +1,56 @@
+@use '@styles/variables';
+@use '@styles/mixins';
+
+.button {
+  @include mixins.fontS;
+  @include mixins.group;
+  height: 55px;
+  padding: 0 28px;
+  color: white;
+  font-family: 'Eudoxus Sans';
+  border: none;
+  cursor: pointer;
+  justify-content: center;
+  transition: all 0.2s ease;
+
+  &_green {
+    background-color: variables.$green;
+
+    &:hover {
+      background-color: rgba(variables.$green, 0.7);
+    }
+  }
+
+  &_white {
+    border: 1px solid variables.$lightGray;
+    background-color: variables.$white;
+    color: variables.$black;
+
+    &.button_disabled {
+      color: variables.$white;
+      &:hover {
+        border: 1px solid variables.$lightGray;
+      }
+    }
+
+    &:hover {
+      border: 1px solid variables.$green;
+    }
+  }
+
+  &_disabled {
+    background-color: variables.$gray;
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: variables.$gray;
+    }
+  }
+}
+
+.loader {
+  border-color: variables.$white;
+  border-bottom-color: transparent;
+  margin-right: 18px;
+  margin-left: -9px;
+}
