@@ -100,11 +100,6 @@ export const Products = observer(({ itemsPerPage }: { itemsPerPage: number }) =>
 
   useEffect(() => {
     fetchCategories();
-
-    window.scrollTo({
-      top: 0,
-      left: 0
-    });
   }, []);
 
   return (
@@ -145,7 +140,9 @@ export const Products = observer(({ itemsPerPage }: { itemsPerPage: number }) =>
           <span className={styles.numberOfProducts}>{productsCount}</span>
         </div>
         {meta === Meta.loading ? (
-          <Loader size={LoaderSize.l} />
+          <div className={styles.loader}>
+            <Loader size={LoaderSize.l} />
+          </div>
         ) : products.length > 0 ? (
           <div className={styles.grid}>
             {products.map((product) => (

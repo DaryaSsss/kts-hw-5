@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { Button } from '@components/Button';
 import filter from '@img/filter.svg';
@@ -41,7 +41,7 @@ export const Select: React.FC<SelectProps> = ({
         })}
         onClick={() => toggleVisible((prev) => !prev)}>
         <img src={filter} alt="filter" className={styles.icon} />
-        Filter
+        {value === -1 ? 'Filter' : options[value - 1].value}
       </Button>
       {isVisible && (
         <div className={styles.dropdown}>

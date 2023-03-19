@@ -24,6 +24,6 @@
       "@pages/*": ["src/pages/*"]
     }
   },
-  "include": ["src/**/*", "./declaration.d.ts"], // какие файлы включены в проверку
+  "include": ["src/**/*", "src/types/declaration.d.ts"], // какие файлы включены в проверку
   "exclude": ["node_modules"] // какие файлы исключены
 }

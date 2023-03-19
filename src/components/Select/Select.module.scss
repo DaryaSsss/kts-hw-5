@@ -1,8 +1,12 @@
-@use "@styles/variables";
-@use "@styles/mixins";
+@use '@styles/variables';
+@use '@styles/mixins';
 
 .wrapper {
   position: relative;
+
+  @include mixins.for-tablet-down {
+    width: 100%;
+  }
 }
 
 .button {
@@ -23,6 +27,13 @@
       border: 1px solid transparent;
     }
   }
+
+  @include mixins.for-tablet-down {
+    @include mixins.fontXS;
+    @include mixins.fontRegular;
+    height: 48px;
+    width: 100%;
+  }
 }
 
 .icon {
@@ -38,10 +49,17 @@
   top: 96px;
   box-shadow: variables.$boxShadowDark;
   width: 190px;
+  background-color: variables.$white;
+  max-height: 210px;
+  overflow-y: scroll;
+
+  @include mixins.for-tablet-down {
+    top: 56px;
+    width: 100%;
+  }
 
   &__option {
     padding: 12px 16px;
-    background-color: variables.$white;
     cursor: pointer;
 
     &:hover {

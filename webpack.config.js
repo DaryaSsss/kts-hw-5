@@ -11,9 +11,14 @@ const publicPath = path.resolve(__dirname, 'public');
 
 const isProd = process.env.NODE_ENV === 'production';
 
+const getSettingsForStylesFinal = (withModules = false) => {
+  return isProd
+    ? [MiniCssExtractPlugin.loader, ...getSettingsForStyles(withModules)]
+    : ['style-loader', ...getSettingsForStyles(withModules)];
+};
+
 const getSettingsForStyles = (withModules = false) => {
   return [
-    MiniCssExtractPlugin.loader,
     !withModules
       ? 'css-loader'
       : {
@@ -53,12 +58,12 @@ module.exports = {
       },
       {
         test: /\.module\.s?css$/,
-        use: getSettingsForStyles(true)
+        use: getSettingsForStylesFinal(true)
       },
       {
         test: /\.s?css$/,
         exclude: /\.module\.s?css$/,
-        use: getSettingsForStyles()
+        use: getSettingsForStylesFinal()
       },
       // {
       //     // если файл заканчивается на .css,  то вебпак должен обрабатывать его с помощью двух лоадеров, при это очень важна последовательность применяемых лоадеров сначала применяется css-loader, чтобы обработать все импортируемые стили и потом style-loader, который вставит указанные стили в тег style

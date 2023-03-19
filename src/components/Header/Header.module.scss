@@ -1,5 +1,5 @@
-@use "@styles/variables";
-@use "@styles/mixins";
+@use '@styles/variables';
+@use '@styles/mixins';
 
 .header {
   height: 120px;
@@ -30,6 +30,7 @@
 }
 
 .logo {
+  cursor: pointer;
   @include mixins.for-phone-down {
     height: 32px;
   }

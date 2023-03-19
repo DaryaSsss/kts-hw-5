@@ -8,7 +8,7 @@ import logo from '@img/logo-with-text.svg';
 import user from '@img/user.svg';
 import { useMediaQuery } from '@utils/helpers';
 import classNames from 'classnames';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 import styles from './Header.module.scss';
 
@@ -16,12 +16,16 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenuOpen = () => setMenuOpen((prev) => !prev);
 
+  const navigate = useNavigate();
+
   const matches = useMediaQuery('(max-width: 768px)');
 
   return (
     <header className={styles.header}>
       <div className={styles.content}>
-        <img src={logo} alt="Logo" className={styles.logo} />
+        <div onClick={() => navigate(`/`)}>
+          <img src={logo} alt="Logo" className={styles.logo} />
+        </div>
         {!matches ? (
           <>
             <div className={styles.links}>
@@ -47,7 +51,7 @@ const Header = () => {
           <Burger menuOpen={menuOpen} toggleMenuOpen={toggleMenuOpen} />
         )}
       </div>
-      <Menu menuOpen={menuOpen} />
+      <Menu menuOpen={menuOpen} toggleMenuOpen={toggleMenuOpen} />
     </header>
   );
 };

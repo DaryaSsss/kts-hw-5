@@ -1,9 +1,15 @@
-@use "@styles/variables";
-@use "@styles/mixins";
+@use '@styles/variables';
+@use '@styles/mixins';
 
 .card {
   @include mixins.stack;
   cursor: pointer;
+
+  &:hover {
+    .card_image {
+      box-shadow: variables.$boxShadowDarkest;
+    }
+  }
 
   &_image {
     margin-bottom: 26px;
