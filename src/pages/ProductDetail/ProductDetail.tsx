@@ -5,6 +5,7 @@ import { Button } from '@components/Button';
 import { Card } from '@components/Card';
 import { Loader, LoaderSize } from '@components/Loader';
 import gridStyles from '@pages/Products/Products.module.scss';
+import cartStore from '@store/CartStore';
 import { Meta, ProductModel } from '@store/models/Product';
 import RelatedProductsStore from '@store/RelatedProductsStore';
 import SingleProductStore from '@store/SingleProductStore';
@@ -44,11 +45,14 @@ const ProductDetail = observer(() => {
 
   useEffect(() => {
     if (product?.categoryId) {
-      fetchRelatedProducts({
-        limit: count,
-        offset: 0,
-        categoryId: product.categoryId
-      });
+      fetchRelatedProducts(
+        {
+          limit: count,
+          offset: 0,
+          categoryId: product.categoryId
+        },
+        product.id
+      );
     }
   }, [product?.categoryId]);
 
@@ -77,9 +81,18 @@ const ProductDetail = observer(() => {
                 <p className={styles.description_subtitle}>{product.subtitle}</p>
                 <p className={styles.description_content}>${product.content}</p>
                 <div className={styles.description_buttons}>
-                  <Button className={styles.description_buttons_button}>Buy Now</Button>
-                  <Button className={styles.description_buttons_button} color="white">
-                    Add to Cart
+                  <Button
+                    className={styles.description_buttons_button}
+                    onClick={() => cartStore.deleteFromCart(product)}
+                    disabled={!cartStore.cartProducts.some((p) => p.id === product.id)}>
+                    Remove from Cart
+                  </Button>
+                  <Button
+                    className={styles.description_buttons_button}
+                    color="white"
+                    onClick={() => cartStore.addProductToCart(product)}
+                    disabled={cartStore.cartProducts.some((p) => p.id === product.id)}>
+                    {cartStore.cartProducts.includes(product) ? 'In Cart' : 'Add to Cart'}
                   </Button>
                 </div>
               </div>
@@ -95,20 +108,18 @@ const ProductDetail = observer(() => {
             <>
               <h2 className={styles.relatedTitle}>Related Items</h2>
               <div className={gridStyles.grid}>
-                {relatedProducts.map(
-                  (item: ProductModel) =>
-                    item.id !== product?.id && (
-                      <Card
-                        title={item.title}
-                        subtitle={item.subtitle}
-                        image={item.images[0]}
-                        content={item.content}
-                        category={item.category}
-                        onClick={() => navigate(`/products/${item.id}`)}
-                        key={item.id}
-                      />
-                    )
-                )}
+                {relatedProducts.map((item: ProductModel) => (
+                  // item.id !== product?.id && (
+                  <Card
+                    title={item.title}
+                    subtitle={item.subtitle}
+                    image={item.images[0]}
+                    content={item.content}
+                    category={item.category}
+                    onClick={() => navigate(`/products/${item.id}`)}
+                    key={item.id}
+                  />
+                ))}
               </div>
             </>
           )

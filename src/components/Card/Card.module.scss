@@ -114,4 +114,12 @@
       @include mixins.fontS;
     }
   }
+
+  &_button {
+    margin-top: 14px;
+
+    @include mixins.for-tablet-down {
+      height: 53px;
+    }
+  }
 }

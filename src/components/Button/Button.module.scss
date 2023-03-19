@@ -1,5 +1,5 @@
-@use "@styles/variables";
-@use "@styles/mixins";
+@use '@styles/variables';
+@use '@styles/mixins';
 
 .button {
   @include mixins.fontS;
@@ -7,7 +7,7 @@
   height: 55px;
   padding: 0 28px;
   color: white;
-  font-family: "Eudoxus Sans";
+  font-family: 'Eudoxus Sans';
   border: none;
   cursor: pointer;
   justify-content: center;
@@ -25,6 +25,13 @@
     border: 1px solid variables.$lightGray;
     background-color: variables.$white;
     color: variables.$black;
+
+    &.button_disabled {
+      color: variables.$white;
+      &:hover {
+        border: 1px solid variables.$lightGray;
+      }
+    }
 
     &:hover {
       border: 1px solid variables.$green;

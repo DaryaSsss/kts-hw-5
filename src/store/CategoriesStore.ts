@@ -1,11 +1,9 @@
-import { ILocalStore } from '@utils/helpers';
+import { BASE_URL } from '@config/API';
 import axios from 'axios';
 import { makeAutoObservable, observable, runInAction } from 'mobx';
 
 import { Category } from './models/Category';
-import { IFetchProducts, Meta, normalizeProduct, ProductModel } from './models/Product';
-
-const BASE_URL = 'https://api.escuelajs.co/api/v1';
+import { IFetchProducts, Meta } from './models/Product';
 
 class CategoriesStore {
   constructor() {
@@ -43,10 +41,6 @@ class CategoriesStore {
   setCategories = (categories: Category[]) => {
     this.categories = categories;
   };
-
-  destroy(): void {
-    // nothing to do
-  }
 }
 
 const categoriesStore = new CategoriesStore();

@@ -1,10 +1,9 @@
+import { BASE_URL } from '@config/API';
 import { ILocalStore } from '@utils/helpers';
 import axios from 'axios';
 import { action, makeAutoObservable, observable, runInAction } from 'mobx';
 
 import { IFetchProducts, Meta, normalizeProduct, ProductModel } from './models/Product';
-
-const BASE_URL = 'https://api.escuelajs.co/api/v1';
 
 export default class ProductsStore implements ILocalStore {
   constructor() {

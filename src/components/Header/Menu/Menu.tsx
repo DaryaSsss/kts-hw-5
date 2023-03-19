@@ -51,8 +51,10 @@ export const Menu = ({
         </NavLink>
       ))}
       <div className={styles.actionIcons}>
-        <img src={bag} alt="Logo" className={styles.actionIcons_icon} />
-        <img src={user} alt="Logo" className={styles.actionIcons_icon} />
+        <div onClick={() => navigate(`/cart`)} className={styles.iconBag}>
+          <img src={bag} alt="Logo" className={styles.actionIcons_icon} />
+        </div>
+        {/* <img src={user} alt="Logo" className={styles.actionIcons_icon} /> */}
       </div>
     </div>
   );

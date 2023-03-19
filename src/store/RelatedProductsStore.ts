@@ -1,10 +1,9 @@
+import { BASE_URL } from '@config/API';
 import { ILocalStore } from '@utils/helpers';
 import axios from 'axios';
-import { action, makeAutoObservable, observable, runInAction } from 'mobx';
+import { makeAutoObservable, observable, runInAction } from 'mobx';
 
 import { IFetchProducts, Meta, normalizeProduct, ProductModel } from './models/Product';
-
-const BASE_URL = 'https://api.escuelajs.co/api/v1';
 
 export default class RelatedProductsStore implements ILocalStore {
   constructor() {
@@ -15,12 +14,10 @@ export default class RelatedProductsStore implements ILocalStore {
   meta: Meta = Meta.initial;
 
   /////////// COMPUTED /////////////
-
   /////////// METHODS //////////////
 
   /////////// ACTIONS //////////////
-
-  fetchRelatedProducts = async (args?: IFetchProducts) => {
+  fetchRelatedProducts = async (args?: IFetchProducts, id?: number) => {
     this.meta = Meta.loading;
 
     const result = await axios({
@@ -28,7 +25,7 @@ export default class RelatedProductsStore implements ILocalStore {
       url: `${BASE_URL}/products`,
       params: {
         offset: args?.offset,
-        limit: args?.limit,
+        limit: args?.limit ? args?.limit + 1 : undefined,
         categoryId: args?.categoryId
       }
     });
@@ -36,7 +33,7 @@ export default class RelatedProductsStore implements ILocalStore {
     runInAction(() => {
       if (result.status === 200) {
         this.meta = Meta.success;
-        this.setProducts(result.data.map(normalizeProduct));
+        this.setProducts(result.data.map(normalizeProduct), id, args?.limit);
 
         return;
       }
@@ -45,8 +42,8 @@ export default class RelatedProductsStore implements ILocalStore {
     });
   };
 
-  setProducts = (products: ProductModel[]) => {
-    this.products = products;
+  setProducts = (products: ProductModel[], id?: number, count?: number) => {
+    this.products = products.filter((product) => product.id !== id).slice(0, count);
   };
 
   destroy(): void {

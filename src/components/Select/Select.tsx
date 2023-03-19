@@ -41,7 +41,7 @@ export const Select: React.FC<SelectProps> = ({
         })}
         onClick={() => toggleVisible((prev) => !prev)}>
         <img src={filter} alt="filter" className={styles.icon} />
-        {value === -1 ? 'Filter' : options[value - 1].value}
+        {value === -1 ? 'Filter' : options.find((option) => option.key === value)?.value}
       </Button>
       {isVisible && (
         <div className={styles.dropdown}>

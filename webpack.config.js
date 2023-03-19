@@ -104,7 +104,8 @@ module.exports = {
       '@utils': path.resolve(__dirname, 'src/utils/'),
       '@store': path.resolve(__dirname, 'src/store/'),
       '@img': path.resolve(__dirname, 'src/img/'),
-      '@pages': path.resolve(__dirname, 'src/pages/')
+      '@pages': path.resolve(__dirname, 'src/pages/'),
+      '@config': path.resolve(__dirname, 'src/config/')
     }
   },
   devServer: {

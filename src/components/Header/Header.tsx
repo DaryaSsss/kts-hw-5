@@ -43,8 +43,10 @@ const Header = () => {
               ))}
             </div>
             <div className={styles.actionIcons}>
-              <img src={bag} alt="Logo" />
-              <img src={user} alt="Logo" />
+              <div onClick={() => navigate(`/cart`)} className={styles.iconBag}>
+                <img src={bag} alt="Logo" />
+              </div>
+              {/* <img src={user} alt="Logo" /> */}
             </div>
           </>
         ) : (
