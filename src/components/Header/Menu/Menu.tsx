@@ -11,7 +11,7 @@ import styles from './Menu.module.scss';
 export const links = [
   {
     name: 'Products',
-    path: '/'
+    path: '/products'
   },
   {
     name: 'Categories',
@@ -34,7 +34,7 @@ export const Menu = ({
 
   return (
     <div className={classNames(styles.menu, { [styles.menu_opened]: menuOpen })}>
-      <div onClick={() => navigate(`/`)}>
+      <div onClick={() => navigate(`/products`)}>
         <img src={logo} alt="Logo" className={styles.logo} />
       </div>
       {links.map((link) => (

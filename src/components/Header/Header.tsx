@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.content}>
-        <div onClick={() => navigate(`/`)}>
+        <div onClick={() => navigate(`/products`)}>
           <img src={logo} alt="Logo" className={styles.logo} />
         </div>
         {!matches ? (

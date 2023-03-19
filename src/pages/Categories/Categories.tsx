@@ -39,7 +39,7 @@ const Categories = () => {
               <Card
                 title={category.name}
                 image={category.image}
-                onClick={() => navigate(`/?categoryId=${category.id}`)}
+                onClick={() => navigate(`/products?categoryId=${category.id}`)}
                 key={category.id}
               />
             ))}

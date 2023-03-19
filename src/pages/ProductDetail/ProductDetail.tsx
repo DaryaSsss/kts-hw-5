@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import React from 'react';
 
 import { Button } from '@components/Button';
@@ -88,26 +88,31 @@ const ProductDetail = observer(() => {
             <span>No product</span>
           )}
         </div>
-        <h2 className={styles.relatedTitle}>Related Items</h2>
-        <div className={gridStyles.grid}>
-          {relatedProductsMeta === Meta.loading ? (
-            <Loader size={LoaderSize.l} className={styles.noProduct} />
-          ) : relatedProductsMeta === Meta.success ? (
-            relatedProducts.map((item: ProductModel) => (
-              <Card
-                title={item.title}
-                subtitle={item.subtitle}
-                image={item.images[0]}
-                content={item.content}
-                category={item.category}
-                onClick={() => navigate(`/${item.id}`)}
-                key={item.id}
-              />
-            ))
-          ) : (
-            <span>No products</span>
-          )}
-        </div>
+        {relatedProductsMeta === Meta.loading ? (
+          <Loader size={LoaderSize.l} className={styles.noProduct} />
+        ) : (
+          relatedProductsMeta === Meta.success && (
+            <>
+              <h2 className={styles.relatedTitle}>Related Items</h2>
+              <div className={gridStyles.grid}>
+                {relatedProducts.map(
+                  (item: ProductModel) =>
+                    item.id !== product?.id && (
+                      <Card
+                        title={item.title}
+                        subtitle={item.subtitle}
+                        image={item.images[0]}
+                        content={item.content}
+                        category={item.category}
+                        onClick={() => navigate(`/products/${item.id}`)}
+                        key={item.id}
+                      />
+                    )
+                )}
+              </div>
+            </>
+          )
+        )}
       </div>
     </div>
   );

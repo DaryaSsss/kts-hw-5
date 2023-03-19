@@ -1,5 +1,5 @@
-@use "@styles/variables";
-@use "@styles/mixins";
+@use '@styles/variables';
+@use '@styles/mixins';
 
 .page {
   margin: 0 auto;
@@ -23,6 +23,7 @@
   @include mixins.for-tablet-down {
     @include mixins.stack;
     gap: 30px;
+    align-items: flex-start;
   }
 
   &_image {
@@ -62,6 +63,7 @@
 
   @include mixins.for-tablet-down {
     padding-top: 0;
+    width: 100%;
   }
 
   @include mixins.for-laptop {

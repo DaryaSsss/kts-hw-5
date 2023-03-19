@@ -152,7 +152,7 @@ export const Products = observer(({ itemsPerPage }: { itemsPerPage: number }) =>
                 image={product.images[0]}
                 content={product.content}
                 category={product.category}
-                onClick={() => navigate(`/${product.id}`)}
+                onClick={() => navigate(`/products/${product.id}`)}
                 key={product.id}
               />
             ))}

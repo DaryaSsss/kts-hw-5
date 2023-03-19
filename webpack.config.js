@@ -48,7 +48,8 @@ module.exports = {
   devtool: isProd ? 'hidden-source-map' : 'eval-source-map',
   output: {
     path: buildPath,
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -104,14 +105,6 @@ module.exports = {
       '@store': path.resolve(__dirname, 'src/store/'),
       '@img': path.resolve(__dirname, 'src/img/'),
       '@pages': path.resolve(__dirname, 'src/pages/')
-
-      // components: path.join(srcPath, 'components'),
-      // config: path.join(srcPath, 'config'),
-      // styles: path.join(srcPath, 'styles'),
-      // utils: path.join(srcPath, 'utils'),
-      // store: path.join(srcPath, 'store'),
-      // img: path.join(srcPath, 'img'),
-      // pages: path.join(srcPath, 'pages')
     }
   },
   devServer: {

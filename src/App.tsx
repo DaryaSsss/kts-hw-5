@@ -24,8 +24,8 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Products itemsPerPage={count} />} />
-        <Route path="/:id" element={<ProductDetail />} />
+        <Route path="/products" element={<Products itemsPerPage={count} />} />
+        <Route path="/products/:id" element={<ProductDetail />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<Navigate to="/" replace />} />
