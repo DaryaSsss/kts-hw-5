@@ -49,7 +49,7 @@ module.exports = {
   output: {
     path: buildPath,
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: isProd ? '/kts-hw-5/' : '/'
   },
   module: {
     rules: [
