@@ -52,3 +52,20 @@
     height: 24px;
   }
 }
+
+.iconBag {
+  cursor: pointer;
+  position: relative;
+
+  &__badge {
+    @include mixins.fontXXS;
+    background-color: variables.$green;
+    color: variables.$white;
+    padding: 4px 10px;
+    border-radius: 1000px;
+    position: absolute;
+    top: 12px;
+    transform: translateY(-50%);
+    left: 30px;
+  }
+}

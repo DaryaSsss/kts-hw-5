@@ -7,11 +7,12 @@ import gridStyles from '@pages/Products/Products.module.scss';
 import categoriesStore from '@store/CategoriesStore';
 import { Category } from '@store/models/Category';
 import { Meta } from '@store/models/Product';
+import { observer } from 'mobx-react-lite';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './Categories.module.scss';
 
-const Categories = () => {
+const Categories = observer(() => {
   const navigate = useNavigate();
 
   const { categories, fetchCategories, meta } = categoriesStore;
@@ -50,6 +51,6 @@ const Categories = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Categories;

@@ -14,7 +14,6 @@ class CartStore {
   }
 
   cartProducts: ProductModel[] = [];
-  meta: Meta = Meta.initial;
 
   /////////// COMPUTED /////////////
 

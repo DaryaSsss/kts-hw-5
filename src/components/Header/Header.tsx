@@ -6,13 +6,15 @@ import { Menu, links } from '@components/Header/Menu';
 import bag from '@img/bag-2.svg';
 import logo from '@img/logo-with-text.svg';
 import user from '@img/user.svg';
+import cartStore from '@store/CartStore';
 import { useMediaQuery } from '@utils/helpers';
 import classNames from 'classnames';
+import { observer } from 'mobx-react-lite';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import styles from './Header.module.scss';
 
-const Header = () => {
+const Header = observer(() => {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenuOpen = () => setMenuOpen((prev) => !prev);
 
@@ -45,6 +47,9 @@ const Header = () => {
             <div className={styles.actionIcons}>
               <div onClick={() => navigate(`/cart`)} className={styles.iconBag}>
                 <img src={bag} alt="Logo" />
+                {cartStore.cartProducts.length > 0 && (
+                  <div className={styles.iconBag__badge}>{cartStore.cartProducts.length}</div>
+                )}
               </div>
               {/* <img src={user} alt="Logo" /> */}
             </div>
@@ -56,6 +61,6 @@ const Header = () => {
       <Menu menuOpen={menuOpen} toggleMenuOpen={toggleMenuOpen} />
     </header>
   );
-};
+});
 
 export default Header;
