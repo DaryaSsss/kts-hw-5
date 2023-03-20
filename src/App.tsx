@@ -14,7 +14,7 @@ function App() {
   const count = useCountProducts('(max-width: 1024px)');
 
   return (
-    <HashRouter basename="/kts-hw-5">
+    <HashRouter>
       <Header />
       <Routes>
         <Route path="/products" element={<Products itemsPerPage={count} />} />
