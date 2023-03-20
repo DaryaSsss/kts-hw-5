@@ -8,13 +8,13 @@ import { Categories } from '@pages/Categories';
 import { ProductDetail } from '@pages/ProductDetail';
 import { Products } from '@pages/Products';
 import { useCountProducts } from '@utils/helpers';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, HashRouter } from 'react-router-dom';
 
 function App() {
   const count = useCountProducts('(max-width: 1024px)');
 
   return (
-    <BrowserRouter>
+    <HashRouter basename="/kts-hw-5">
       <Header />
       <Routes>
         <Route path="/products" element={<Products itemsPerPage={count} />} />
@@ -24,7 +24,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="*" element={<Navigate to="/products" replace />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
