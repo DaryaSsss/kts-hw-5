@@ -54,7 +54,7 @@ const ProductDetail = observer(() => {
         product.id
       );
     }
-  }, [product?.categoryId]);
+  }, [product?.categoryId, product?.id]);
 
   return (
     <div className={styles.page}>

@@ -1,12 +1,12 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React from 'react';
+import { useEffect, useState } from 'react';
 
-import { useLocation } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
 export function useMediaQuery(query: string): boolean {
   const getMatches = (query: string): boolean => {
     // Prevents SSR issues
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       return window.matchMedia(query).matches;
     }
     return false;
@@ -28,14 +28,14 @@ export function useMediaQuery(query: string): boolean {
     if (matchMedia.addListener) {
       matchMedia.addListener(handleChange);
     } else {
-      matchMedia.addEventListener("change", handleChange);
+      matchMedia.addEventListener('change', handleChange);
     }
 
     return () => {
       if (matchMedia.removeListener) {
         matchMedia.removeListener(handleChange);
       } else {
-        matchMedia.removeEventListener("change", handleChange);
+        matchMedia.removeEventListener('change', handleChange);
       }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -100,12 +100,12 @@ export const useOnClickOutside = (ref: any, handler: (event: any) => void) => {
       }
       handler(event);
     };
-    document.addEventListener("mousedown", listener);
-    document.addEventListener("touchstart", listener);
+    document.addEventListener('mousedown', listener);
+    document.addEventListener('touchstart', listener);
 
     return () => {
-      document.removeEventListener("mousedown", listener);
-      document.removeEventListener("touchstart", listener);
+      document.removeEventListener('mousedown', listener);
+      document.removeEventListener('touchstart', listener);
     };
   }, [ref, handler]);
 };
