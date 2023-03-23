@@ -48,7 +48,12 @@ export const Menu = observer(
           </NavLink>
         ))}
         <div className={styles.actionIcons}>
-          <div onClick={() => navigate(`/cart`)} className={styles.iconBag}>
+          <div
+            onClick={() => {
+              navigate(`/cart`);
+              toggleMenuOpen();
+            }}
+            className={styles.iconBag}>
             <img src={bag} alt="Logo" className={styles.actionIcons_icon} />
             {cartStore.cartProducts.length > 0 && (
               <div className={styles.iconBag__badge}>{cartStore.cartProducts.length}</div>

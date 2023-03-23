@@ -1,5 +1,5 @@
-@use "@styles/variables";
-@use "@styles/mixins";
+@use '@styles/variables';
+@use '@styles/mixins';
 
 .page {
   margin: 0 auto;
@@ -40,4 +40,10 @@
       @include mixins.fontXXL;
     }
   }
+}
+
+.loader {
+  @include mixins.group;
+  justify-content: center;
+  padding-bottom: 48px;
 }

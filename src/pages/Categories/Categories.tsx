@@ -33,7 +33,9 @@ const Categories = observer(() => {
           <h1 className={styles.header__title}>Categories</h1>
         </div>
         {meta === Meta.loading ? (
-          <Loader size={LoaderSize.l} />
+          <div className={styles.loader}>
+            <Loader size={LoaderSize.l} />
+          </div>
         ) : meta === Meta.success ? (
           <div className={gridStyles.grid}>
             {categories.map((category: Category) => (
