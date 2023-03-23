@@ -102,9 +102,11 @@
   }
 
   &_content {
+    @include mixins.group;
     @include mixins.fontM;
     color: variables.$black;
     margin-top: auto;
+    justify-content: space-between;
 
     @include mixins.for-phone-down {
       @include mixins.fontXS;
